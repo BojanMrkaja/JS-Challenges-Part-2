@@ -79,4 +79,152 @@ const generation = function (gennaration, gender) {
   return genObj[gennaration];
 };
 
-console.log(generation(3, 'f'));
+// console.log(generation(3, 'f'));
+
+/*
+
+Function Factory
+
+Create a function that takes a "base number" as an argument. 
+This function should return another function which takes a new argument, and returns the sum of the "base number" and the new argument.
+
+Please check the examples below for a clearer representation of the behavior expected.
+Examples
+
+// Calling makePlusFunction(5) returns a new function that takes an input,
+// and returns the result when adding 5 to it.
+
+const plusFive = makePlusFunction(5)
+
+plusFive(2) ➞ 7
+
+plusFive(-8) ➞ -3
+
+// Calling makePlusFunction(10) returns a new function that takes an input,
+// and returns the result when adding 10 to it.
+
+const plusTen = makePlusFunction(10)
+
+plusTen(0) ➞ 10
+
+plusTen(188) ➞ 198
+
+plusFive(plusTen(0)) ➞ 15
+
+Notes
+
+All inputs will be valid numbers.
+*/
+
+const makePlusFunction = function (baseNum) {
+  const newFunc = function (newNum) {
+    return baseNum + newNum;
+  };
+
+  return newFunc(-8);
+};
+
+// console.log(makePlusFunction(5));
+
+/*
+Converting Objects to Arrays
+
+Write a function that converts an object into an array, where each element represents a key-value pair in the form of an array.
+Examples
+
+toArray({ a: 1, b: 2 }) ➞ [["a", 1], ["b", 2]]
+
+toArray({ shrimp: 15, tots: 12 }) ➞ [["shrimp", 15], ["tots", 12]]
+
+toArray({}) ➞ []
+
+Notes
+
+Return an empty array if the object is empty.
+*/
+
+const toArray = function (object) {
+  return Object.entries(object);
+};
+
+// console.log(toArray({ a: 1, b: 2 }));
+
+/*
+
+Convenience Store
+
+Given a total due and an array representing the amount of change in your pocket, determine whether or not you are able to pay for the item. 
+Change will always be represented in the following order: quarters, dimes, nickels, pennies.
+
+To illustrate: changeEnough([25, 20, 5, 0], 4.25) 
+should yield true, since having 25 quarters, 20 dimes, 5 nickels and 0 pennies gives you 6.25 + 2 + .25 + 0 = 8.50.
+
+Examples
+changeEnough([2, 100, 0, 0], 14.11) ➞ false
+
+changeEnough([0, 0, 20, 5], 0.75) ➞ true
+
+changeEnough([30, 40, 20, 5], 12.55) ➞ true
+
+changeEnough([10, 0, 0, 50], 3.85) ➞ false
+
+changeEnough([1, 0, 5, 219], 19.99) ➞ false
+
+Notes
+
+    quarter: 25 cents / $0.25
+    dime: 10 cents / $0.10
+    nickel: 5 cents / $0.05
+    penny: 1 cent / $0.01
+*/
+
+const changeEnough = function (change, amountDue) {
+  const quarter = 0.25;
+  const dime = 0.1;
+  const nickel = 0.05;
+  const penny = 0.01;
+  const changeLeft =
+    quarter * change[0] +
+    dime * change[1] +
+    nickel * change[2] +
+    penny * change[3];
+
+  if (changeLeft >= amountDue) {
+    return `${true} ${changeLeft} is greater than ${amountDue} so you can pay for item`;
+  } else {
+    return `${false} ${changeLeft} is less than ${amountDue} so you can't pay for item`;
+  }
+};
+
+// console.log(changeEnough([10, 0, 0, 50], 3.85));
+
+/*
+Array of Multiples
+
+Create a function that takes two numbers as arguments (num, length) and returns an array of multiples of num until the array length reaches length.
+Examples
+
+arrayOfMultiples(7, 5) ➞ [7, 14, 21, 28, 35]
+
+arrayOfMultiples(12, 10) ➞ [12, 24, 36, 48, 60, 72, 84, 96, 108, 120]
+
+arrayOfMultiples(17, 6) ➞ [17, 34, 51, 68, 85, 102]
+
+Notes
+
+Notice that num is also included in the returned array.
+
+*/
+
+const arrayOfMultiples = function (num, length) {
+  if (num > 0) {
+    const array = [];
+    for (let i = 0; i < length; i++) {
+      array.push((i + 1) * num);
+    }
+    return array;
+  } else {
+    return 'Number must be positiv!!Try Again';
+  }
+};
+console.log(arrayOfMultiples(17, 6));
