@@ -311,4 +311,37 @@ const checkEquals = function (arr1, arr2) {
   return arr1.every((el, i) => el === arr2[i]);
 };
 
-console.log(checkEquals([4, 5, 6], [4, 8, 6]));
+// console.log(checkEquals([4, 5, 6], [4, 8, 6]));
+
+/*
+
+Basic Calculator
+
+Create a function that takes two numbers and a mathematical operator + - / * and will perform a calculation with the given numbers.
+Examples
+
+calculator(2, "+", 2) ➞ 4
+
+calculator(2, "*", 2) ➞ 4
+
+calculator(4, "/", 2) ➞ 2
+
+Notes
+
+If the input tries to divide by 0, return: "Can't divide by 0!"
+
+*/
+
+const calculator = function (num1, operator, num2) {
+  let result;
+
+  operator === '+' ? (result = num1 + num2) : null;
+  operator === '-' ? (result = num1 - num2) : null;
+  operator === '*' ? (result = num1 * num2) : null;
+  operator === '/' ? (result = num1 / num2) : null;
+  num1 === 0 || num2 === 0 ? (result = "Can't divide by 0!") : null;
+
+  return result;
+};
+
+console.log(calculator(4, '/', 2));
