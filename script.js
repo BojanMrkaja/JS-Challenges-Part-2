@@ -344,4 +344,63 @@ const calculator = function (num1, operator, num2) {
   return result;
 };
 
-console.log(calculator(4, '/', 2));
+// console.log(calculator(4, '/', 2));
+
+/*
+
+Learn Lodash (2): Compact
+
+According to the lodash documentation, _.compact creates an array with all falsey values removed. The values false, null, 0, "", undefined, and NaN are falsey.
+
+Your task is to build this helper function without using lodash. You will write a function that receives an array and removes all falsey values.
+Examples
+
+compact([0, 1, false, 2, "", 3]);   // => [1, 2, 3]
+
+Notes
+
+    Do not attempt to import lodash; you are simply writing your own version.
+    This entire series of challenges can be found here.
+
+*/
+
+const compact = function (arr) {
+  let newArr = arr.filter(el => el);
+
+  return newArr;
+};
+
+// console.log(compact([0, 1, false, 2, '', 3]));
+
+/*
+
+Reverse Words in a String
+
+Given an input string, reverse the string word by word, the first word will be the last, and so on.
+Examples
+
+reverseWords(" the sky is blue") ➞ "blue is sky the"
+
+reverseWords("hello   world!  ") ➞ "world! hello"
+
+reverseWords("a good example") ➞ "example good a"
+
+Notes
+
+    A word is defined as a sequence of non-space characters.
+    The input string may contain leading or trailing spaces. However, your reversed string should not contain leading or trailing spaces.
+    You need to reduce multiple spaces between two words to a single space in the reversed string.
+    Try to solve this in linear time.
+
+*/
+
+const reverseWords = function (string) {
+  const strToArr = string
+    .split(' ')
+    .reverse()
+    .filter(el => el)
+    .join(' ');
+  return strToArr;
+};
+
+console.log(reverseWords('hello   world!  '));
