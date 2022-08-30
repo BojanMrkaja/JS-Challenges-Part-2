@@ -606,4 +606,39 @@ const ascDesNone = function (arr, order) {
   }
 };
 
-console.log(ascDesNone([7, 8, 11, 66], 'Des'));
+// console.log(ascDesNone([7, 8, 11, 66], 'Des'));
+
+/*
+
+Match the Last Item
+
+Create a function that takes an array of items and checks if the last item matches the rest of the array concatenated together.
+Examples
+
+matchLastItem(["rsq", "6hi", "g", "rsq6hig"]) ➞ true
+// The last item is the rest joined.
+
+matchLastItem([1, 1, 1, "11"]) ➞ false
+// The last item should be "111".
+
+matchLastItem([8, "thunder", true, "8thundertrue"]) ➞ true
+
+Notes
+
+The array is always filled with items.
+
+*/
+
+const matchLastItem = function (arr) {
+  const arrToStr = arr.map(el => String(el));
+  const lastItem = arrToStr.pop();
+  const joinedItems = arrToStr.join('');
+
+  if (lastItem === joinedItems) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+console.log(matchLastItem([8, 'thunder', true, '8thundertrue']));
