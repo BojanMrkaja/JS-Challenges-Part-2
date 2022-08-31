@@ -850,7 +850,6 @@ const countBoomerangs = function (arr) {
 // console.log(countBoomerangs([5, 5, 5, 5, 5, 5, 5, 5]));
 
 /*
-
 Oddish vs. Evenish
 
 Create a function that determines whether a number is Oddish or Evenish. 
@@ -872,3 +871,17 @@ oddishOrEvenish(4433) ➞ "Evenish"
 // 14 % 2 = 0
 
 */
+
+const oddishOrEvenish = function (number) {
+  let sum = 0;
+  const toArrOfStrings = String(number).split('');
+  toArrOfStrings.forEach(el => (sum += Number(el)));
+
+  if (sum % 2 === 1) {
+    return 'Oddish';
+  } else if (sum % 2 === 0) {
+    return 'Evenish';
+  }
+};
+
+console.log(oddishOrEvenish(4433));
