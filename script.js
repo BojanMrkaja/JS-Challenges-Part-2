@@ -703,3 +703,68 @@ getBudgets([
   { name: 'Steve', age: 32, budget: 40000 },
   { name: 'Martin', age: 16, budget: 2700 },
 ]);
+
+/*
+Is Johnny Making Progress?
+
+To train for an upcoming marathon, Johnny goes on one long-distance run each Saturday. He wants to track how often the number of miles he runs this Saturday exceeds the number of miles run the previous Saturday. This is called a progress day.
+
+Create a function that takes in an array of miles run every Saturday and returns Johnny's total number of progress days.
+Examples
+
+progressDays([3, 4, 1, 2]) ➞ 2
+// There are two progress days, (3->4) and (1->2)
+
+progressDays([10, 11, 12, 9, 10]) ➞ 3
+
+progressDays([6, 5, 4, 3, 2, 9]) ➞ 1
+
+progressDays([9, 9])  ➞ 0
+
+Notes
+
+Running the same number of miles as last week does not count as a progress day.
+*/
+
+const progressDays = function (arr) {
+  let progressCount = 0;
+
+  for (let index = 0; index < arr.length; index++) {
+    if (arr[index] < arr[index + 1]) {
+      progressCount += 1;
+    }
+  }
+
+  return progressCount;
+};
+
+// console.log(progressDays([10, 11, 12, 9, 10]));
+
+/*
+
+Purge and Organize
+
+Given an array of numbers, write a function that returns an array that...
+
+    Has all duplicate elements removed.
+    Is sorted from least to greatest value.
+
+Examples
+
+uniqueSort([1, 2, 4, 3]) ➞ [1, 2, 3, 4]
+
+uniqueSort([1, 4, 4, 4, 4, 4, 3, 2, 1, 2]) ➞ [1, 2, 3, 4]
+
+uniqueSort([6, 7, 3, 2, 1]) ➞ [1, 2, 3, 6, 7]
+
+*/
+
+const uniqueSort = function (arr) {
+  const removedDuplicateSort = arr
+    .filter((el, i) => arr.indexOf(el) === i)
+    .sort();
+
+  return removedDuplicateSort;
+};
+
+console.log(uniqueSort([1, 4, 4, 4, 4, 4, 3, 2, 1, 2, 5, 5, 5, 5, 8, 8, 8, 8]));
