@@ -767,4 +767,108 @@ const uniqueSort = function (arr) {
   return removedDuplicateSort;
 };
 
-console.log(uniqueSort([1, 4, 4, 4, 4, 4, 3, 2, 1, 2, 5, 5, 5, 5, 8, 8, 8, 8]));
+// console.log(uniqueSort([1, 4, 4, 4, 4, 4, 3, 2, 1, 2, 5, 5, 5, 5, 8, 8, 8, 8]));
+
+/*
+
+Seven Boom!
+
+Create a function that takes an array of numbers and return "Boom!" if the digit 7 appears in the array. Otherwise, return "there is no 7 in the array".
+Examples
+
+sevenBoom([1, 2, 3, 4, 5, 6, 7]) ➞ "Boom!"
+// 7 contains the number seven.
+
+sevenBoom([8, 6, 33, 100]) ➞ "there is no 7 in the array"
+// None of the items contain 7 within them.
+
+sevenBoom([2, 55, 60, 97, 86]) ➞ "Boom!"
+// 97 contains the number seven.
+
+*/
+
+const sevenBoom = function (arr) {
+  const newArr = [];
+  arr.forEach(el => newArr.push(String(el)));
+  const stringJoined = newArr.join('');
+  if (stringJoined.includes('7')) {
+    return 'Boom!Array contains the number seven.';
+  } else {
+    return 'there is no 7 in the array';
+  }
+};
+
+// console.log(sevenBoom([2, 55, 60, 79, 86]));
+
+/*
+
+Number of Boomerangs
+
+A boomerang is a V-shaped sequence that is either upright or upside down. Specifically, a boomerang can be defined as: sub-array of length 3, with the first and last digits being the same and the middle digit being different.
+
+Some boomerang examples:
+
+[3, 7, 3], [1, -1, 1], [5, 6, 5]
+
+Create a function that returns the total number of boomerangs in an array.
+
+To illustrate:
+
+[3, 7, 3, 2, 1, 5, 1, 2, 2, -2, 2]
+// 3 boomerangs in this sequence:  [3, 7, 3], [1, 5, 1], [2, -2, 2]
+
+Be aware that boomerangs can overlap, like so:
+
+[1, 7, 1, 7, 1, 7, 1]
+// 5 boomerangs (from left to right): [1, 7, 1], [7, 1, 7], [1, 7, 1], [7, 1, 7], and [1, 7, 1]
+
+Examples
+
+countBoomerangs([9, 5, 9, 5, 1, 1, 1]) ➞ 2
+
+countBoomerangs([5, 6, 6, 7, 6, 3, 9]) ➞ 1
+
+countBoomerangs([4, 4, 4, 9, 9, 9, 9]) ➞ 0
+
+Notes
+
+[5, 5, 5] (triple identical digits) is NOT considered a boomerang because the middle digit is identical to the first and last.
+*/
+
+const countBoomerangs = function (arr) {
+  let boomerangsCount = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === arr[i + 2] && arr[i] !== arr[i + 1]) {
+      boomerangsCount += 1;
+    }
+  }
+
+  return boomerangsCount;
+};
+
+// console.log(countBoomerangs([5, 5, 5, 5, 5, 5, 5, 5]));
+
+/*
+
+Oddish vs. Evenish
+
+Create a function that determines whether a number is Oddish or Evenish. 
+A number is Oddish if the sum of all of its digits is odd, and a number is Evenish if the sum of all of its digits is even. If a number is Oddish, return "Oddish". Otherwise, return "Evenish".
+
+For example, oddishOrEvenish(121) should return "Evenish", since 1 + 2 + 1 = 4. oddishOrEvenish(41) should return "Oddish", since 4 + 1 = 5.
+Examples
+
+oddishOrEvenish(43) ➞ "Oddish"
+// 4 + 3 = 7
+// 7 % 2 = 1
+
+oddishOrEvenish(373) ➞ "Oddish"
+// 3 + 7 + 3 = 13
+// 13 % 2 = 1
+
+oddishOrEvenish(4433) ➞ "Evenish"
+// 4 + 4 + 3 + 3 = 14
+// 14 % 2 = 0
+
+*/
